@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="container">
+<div class="well">
+    <form accept-charset="UTF-8" action="" method="POST">
+        <textarea class="form-control" id="text" name="messages" maxlength="200" placeholder="Type in your message" rows="5"></textarea>
+        <span class="pull-right label label-default" id="count_message"></span>
+        <br>
+        <button class="btn btn-info" type="submit" name="action">Update your Comment</button>
+    </form>
+</div>
+</div>
+
+{% endblock %}
