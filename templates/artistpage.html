@@ -87,9 +87,9 @@
           <li>
               <div class="comment-main-level">
                   <!-- Avatar -->
-                  <div class="comment-avatar"><h1 class = "initial">{{item.user[0]}}</h1></div>
+                  <div class="comment-avatar "><h1 class = "initial">{{item.user[0]}}</h1></div>
                   <!-- Contenedor del Comentario -->
-                  <div class="comment-box">
+                  <div class="comment-box container">
                       <div class="comment-head">
                         
                         <i class="fa fa-user"></i>
@@ -129,7 +129,7 @@
       </ul>
       
       <div class="well">
-        <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist_id._id)}}" method="POST">
+        <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist_id._id)}}" method="POST" class="container">
             <textarea class="form-control" id="text" name="messages" maxlength="200" placeholder="Type in your message" rows="5"></textarea>
             <span class="pull-right label label-default" id="count_message"></span>
             <br>

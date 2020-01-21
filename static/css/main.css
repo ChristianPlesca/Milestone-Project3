@@ -586,33 +586,7 @@
   }
 }
 
-/*-----------------------------------Comment Panel------*/
-.comment-wrapper .panel-body {
-    max-height:650px;
-    overflow:auto;
-}
 
-.comment-wrapper .media-list .media img {
-    width:64px;
-    height:64px;
-    border:2px solid #e5e7e8;
-}
-
-.comment-wrapper .media-list .media {
-    border-bottom:1px dashed #efefef;
-    margin-bottom:25px;
-}
-
-.user-first-letter{
-  margin-top: 5px;
-}
-
-.user-first-letter-body{
-  width: 50px;
-    height: 50px;
-    background-color: red;
-    border-radius: 50%;
-}
 
 
 
@@ -859,7 +833,8 @@ body {
 }
 
 .initial {
-  margin-top:4px;
+  text-align: center;
+  font-weight: 700;
 }
 
 
@@ -877,4 +852,21 @@ margin-right: 5px;
 
 .form-control{
   border-radius: 3px !important;
+}
+
+/*------------------------------------Shadows-----*/
+.jumbotron {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card{
+  box-shadow: 0 4px 8px 0 rgba(211, 211, 211, 0.2), 0 6px 20px 0 rgba(211, 211, 211, 0.19)
+}
+
+.card-img-top {
+  box-shadow: 0 4px 8px 0 rgba(34, 139, 34, 0.2), 0 6px 20px 0 rgba(34, 139, 34, 0.19)
+}
+
+.navbar-brand, .title {
+  text-shadow: 1px 1px 2px black, 0 0 25px silver, 0 0 5px darkblue;
 }
