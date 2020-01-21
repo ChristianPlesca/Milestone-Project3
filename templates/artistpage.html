@@ -105,9 +105,10 @@
                         <button class="btn-lg fa fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         
+                        
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id)}}">Edit</a>
-                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id)}}">Delete</a>
+                          <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id,artist_id = artist_id._id)}}">Edit</a>
+                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist_id._id)}}">Delete</a>
                           
                         </div>
                         

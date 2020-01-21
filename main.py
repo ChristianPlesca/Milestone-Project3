@@ -7,6 +7,8 @@ from . import mongo
 
 
 main = Blueprint('main', __name__)
+date = datetime.now().strftime("%d/%m/%Y")
+time = datetime.now().strftime("%H:%M:%S")
 
 @main.route('/')
 def index():
@@ -37,8 +39,6 @@ def artist_page(artist_id ,artist_name):
 
 @main.route("/insert_comment/<artist_id>", methods = ["POST"])
 def insert_comment(artist_id):
-    date = datetime.now().strftime("%d/%m/%Y")
-    time = datetime.now().strftime("%H:%M:%S")
     artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
     
     messages_conn = mongo.db.comments
@@ -52,18 +52,21 @@ def delete_comment(comments_id):
     return redirect(url_for("main.artist_page"))
 
 
-@main.route("/edit_message/<comments_id>")
-def edit_message(comments_id):
+@main.route("/edit_message/<comments_id>/<artist_id>")
+def edit_message(comments_id,artist_id):
     the_message = mongo.db.comments.find_one({"_id":ObjectId(comments_id)})
-    return render_template("editmessage.html", messages = the_message)
+    artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
+    return render_template("editmessage.html", messages = the_message ,artist = artist_id)
 
-@main.route("/update_message/<comments_id>", methods = ["POST"])
-def edit_comment(comments_id):
+@main.route("/update_message/<comments_id>/<artist_id>", methods = ["POST"])
+def update_comment(comments_id,artist_id):
+    artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
     messages = mongo.db.comments.update({"_id":ObjectId(comments_id)},
     {
-       "date":request.form.get("date"),
-       "messages":request.form.get("messages"),
-       "user":request.form.get("user"),
-       "time":request.form.get("time") 
+       "date":date,
+       "messages":{request.form.get("messages"):current_user.id},
+       "user":current_user.name,
+       "time":time,
+       "artist_id":artist_id.items()[4][1]
     })
     return redirect(url_for('main.index'))
