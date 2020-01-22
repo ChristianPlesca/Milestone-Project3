@@ -71,24 +71,21 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  
-  <div class="panel-heading text-center">
+  <!-- Comment Section -->
+  <div class="panel-heading text-center" action>
           <h3>Discussions</h3>    
-    </div>
-                
-                            
+  </div>                     
     <div class="comments-container">                 
       <ul id="comments-list" class="comments-list">
       
         {% for item in comments %}
         {% for message, id in item.messages.items() %}
-        {% if item.artist_id == artist_id._id %}
+        
         
           <li>
               <div class="comment-main-level">
                   <!-- Avatar -->
                   <div class="comment-avatar "><h1 class = "initial">{{item.user[0]}}</h1></div>
-                  <!-- Contenedor del Comentario -->
                   <div class="comment-box container">
                       <div class="comment-head">
                         
@@ -97,25 +94,17 @@
                           
                           <span class = "time">{{item.time}}</span>
                           <p class = "date">{{item.date}}</p>
-                      </div>
-                      
-                      {% if current_user.id == id %}
-                      
+                      </div>                     
+                      {% if current_user.id == id %}                     
                       <div class="btn-group ">
                         <button class="btn-lg fa fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </button>
-                        
-                        
+                        </button>                                               
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id,artist_id = artist_id._id)}}">Edit</a>
-                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist_id._id)}}">Delete</a>
-                          
-                        </div>
-                        
-                      </div>
-                      
-                      {% endif %}
-                      
+                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist_id._id)}}">Delete</a>                         
+                        </div>                        
+                      </div>                      
+                      {% endif %}                      
                       <div class="comment-content">
                           {{message}}
                       </div>  
@@ -123,7 +112,7 @@
               </div>
               
           </li>
-          {% endif %}
+          
           {% endfor %}
           {% endfor %}
       </ul>

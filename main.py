@@ -20,20 +20,30 @@ def index():
 
 @main.route("/<artist_name>/<artist_id>" )
 def artist_page(artist_id ,artist_name):
-    data = {
+    artist_data = {
         'artist_name':request.form.get("artist_name"),
         'artist_genre':request.form.get("artist_genre"),
         'artist_description':request.form.get('artist_description'),
         'artist_members':request.form.get("artist_members"),
         'artist_albums':request.form.get("artist_albums"),
         'album_url':request.form.get('album_url'),
-        'artist_icon':request.form.get('artist_icon')
+        'artist_icon':request.form.get('artist_icon'),
+        'artist_id':request.form.get("artist_id")
+    }
+
+    comments_data = {
+        "_id":request.form.get("_id"),
+        "date":request.form.get("date"),
+        "artist_id":request.form.get("artist_id"),
+        "messages":request.form.get("messages"),
+        "user":request.form.get("user"),
+        "time":request.form.get("time")
     }
 
 
     artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
 
-    comments = mongo.db.comments.find()
+    comments = mongo.db.comments.find({"artist_id":ObjectId(artist_id.items()[4][1])})
 
     return render_template("artistpage.html", artist_id = artist_id , comments = comments ) 
 
@@ -49,7 +59,7 @@ def insert_comment(artist_id):
 @main.route("/<comments_id>")
 def delete_comment(comments_id):
     mongo.db.comments.remove({"_id":ObjectId(comments_id)})
-    return redirect(url_for("main.artist_page"))
+    return redirect(url_for("main.index"))
 
 
 @main.route("/edit_message/<comments_id>/<artist_id>")
