@@ -101,11 +101,13 @@
                         </button>                                               
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id,artist_id = artist_id._id)}}">Edit</a>
-                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist_id._id)}}">Delete</a>                         
+                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist_id._id, artist_name = artist_id.artist_name)}}">Delete</a>
+                          <p>{{artist_id._id}}</p>                    
                         </div>                        
                       </div>                      
-                      {% endif %}                      
-                      <div class="comment-content">
+                      {% endif %}
+                                           
+                      <div class="comment-content" id = "comment-content">
                           {{message}}
                       </div>  
                   </div>

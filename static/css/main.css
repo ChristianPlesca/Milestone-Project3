@@ -716,7 +716,7 @@ body {
   clear: both;
 }
 /**
-* Caja del Comentario
+* Comments List 
 ---------------------------*/
 .comments-list .comment-box {
   width: 680px;
@@ -869,4 +869,14 @@ margin-right: 5px;
 
 .navbar-brand, .title {
   text-shadow: 1px 1px 2px black, 0 0 25px silver, 0 0 5px darkblue;
+}
+
+
+/*==============================[Navbar]=============*/
+.navbar-brand, .nav-link, .navbar-toggler{
+  color: #c7cacb !important;
+}
+
+.nav-link:hover, .narbar-brand:hover {
+  color:#28a745 !important; 
 }

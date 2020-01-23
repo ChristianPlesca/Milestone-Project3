@@ -5,7 +5,6 @@ from datetime import datetime
 from . import db
 from . import mongo
 
-
 main = Blueprint('main', __name__)
 date = datetime.now().strftime("%d/%m/%Y")
 time = datetime.now().strftime("%H:%M:%S")
@@ -50,7 +49,6 @@ def artist_page(artist_id ,artist_name):
 @main.route("/insert_comment/<artist_id>", methods = ["POST"])
 def insert_comment(artist_id):
     artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
-    
     messages_conn = mongo.db.comments
     messages_doc = {"messages":{request.form.get('messages') : current_user.id }, "user":current_user.name, "date":date, "time":time, "artist_id":artist_id.items()[4][1] }
     messages_conn.insert_one(messages_doc)
@@ -59,7 +57,7 @@ def insert_comment(artist_id):
 @main.route("/<comments_id>")
 def delete_comment(comments_id):
     mongo.db.comments.remove({"_id":ObjectId(comments_id)})
-    return redirect(url_for("main.index"))
+    return redirect(url_for("main.artist_page",artist_id = artist_id ,artist_name = artist_name))
 
 
 @main.route("/edit_message/<comments_id>/<artist_id>")
@@ -79,4 +77,4 @@ def update_comment(comments_id,artist_id):
        "time":time,
        "artist_id":artist_id.items()[4][1]
     })
-    return redirect(url_for('main.index'))
+    return redirect(url_for("main.artist_page"))
