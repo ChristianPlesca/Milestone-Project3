@@ -57,7 +57,7 @@ def insert_comment(artist_id):
 @main.route("/<comments_id>")
 def delete_comment(comments_id):
     mongo.db.comments.remove({"_id":ObjectId(comments_id)})
-    return redirect(url_for("main.artist_page",artist_id = artist_id ,artist_name = artist_name))
+    return redirect(url_for("main.artist_page"))
 
 
 @main.route("/edit_message/<comments_id>/<artist_id>")
