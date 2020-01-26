@@ -33,7 +33,12 @@
       <p class="lead">{{artist_id.artist_description}}</p>
       <h5 class="display-5">Members</h5>
       {% for member in artist_id.artist_members %}
-      <p class="lead members">{{member + ","}}</p>
+      {% if not loop.last %}
+      <p class="lead members">{{member + "," }}</p>
+      
+      {% else %}
+      <p class="lead members">{{member }}</p>
+      {%endif%}
       {% endfor %}
     </div>
   </div>
@@ -44,7 +49,7 @@
          {% if loop.index == 0 %}
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       {% else %}
-      <li data-target="#carouselExampleIndicators" data-slide-to="{{loop.index}}"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="{{loop.index - 1}}"></li>
       {% endif %}
       {% endfor %}
     </ol>
@@ -53,7 +58,7 @@
       {% for album in artist_id.album_url %}
         {% if loop.index == 1 %}
       <div class="carousel-item active">
-        <img class="d-block w-100" src="{{album}}" alt="First slide">
+        <img class="d-block w-100" src="{{album}}" alt="Slide">
       </div>
       {% else %}
       <div class="carousel-item ">
