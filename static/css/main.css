@@ -164,6 +164,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 177px 130px 33px 95px;
+    margin-top: 70px;
   }
   
   /*------------------------------------------------------------------
@@ -510,6 +511,7 @@
     text-align: center;
     padding: 20px;
     color: #ffffff;
+    padding-top: 75px;
   }
   
 
@@ -525,6 +527,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
+
+}
+
+.masthead-heading {
+  text-shadow: 0 0 10px #FFFFFF;
 }
 
 .artist-home-page {
@@ -588,13 +595,6 @@
 }
 
 
-
-
-
-
-
-
-
  * {
   margin: 0;
   padding: 0;
@@ -602,8 +602,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-
 
 ul {
   list-style-type: none;
@@ -614,246 +612,6 @@ body {
   background: #dee1e3;
 }
 
-/** ====================
-* Lista de Comentarios
-=======================*/
-.comments-container {
-  margin: 60px auto 15px;
-  width: 768px;
-}
-
-.comments-container h1 {
-  font-size: 36px;
-  color: #283035;
-  font-weight: 400;
-}
-
-.comments-container h1 a {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.comments-list {
-  margin-top: 30px;
-  position: relative;
-}
-
-/**
-* Lineas / Detalles
------------------------*/
-.comments-list:before {
-  content: '';
-  width: 2px;
-  height: 100%;
-  background: #c7cacb;
-  position: absolute;
-  left: 32px;
-  top: 0;
-}
-
-.comments-list:after {
-  content: '';
-  position: absolute;
-  background: #c7cacb;
-  bottom: 0;
-  left: 27px;
-  width: 7px;
-  height: 7px;
-  border: 3px solid #dee1e3;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-}
-
-
-.comments-list li {
-  margin-bottom: 15px;
-  display: block;
-  position: relative;
-}
-
-.comments-list li:after {
-  content: '';
-  display: block;
-  clear: both;
-  height: 0;
-  width: 0;
-}
-
-
-/**
-* Avatar
----------------------------*/
-.comments-list .comment-avatar {
-  width: 65px;
-  height: 65px;
-  position: relative;
-  z-index: 99;
-  float: left;
-  border: 3px solid #FFF;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  overflow: hidden;
-}
-
-.comment-avatar  {
-  background-color:teal
-}
-
-.reply-list .comment-avatar {
-  width: 50px;
-  height: 50px;
-}
-
-.comment-main-level:after {
-  content: '';
-  width: 0;
-  height: 0;
-  display: block;
-  clear: both;
-}
-/**
-* Comments List 
----------------------------*/
-.comments-list .comment-box {
-  width: 680px;
-  float: right;
-  position: relative;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-}
-
-.comments-list .comment-box:before, .comments-list .comment-box:after {
-  content: '';
-  height: 0;
-  width: 0;
-  position: absolute;
-  display: block;
-  border-width: 10px 12px 10px 0;
-  border-style: solid;
-  border-color: transparent #FCFCFC;
-  top: 8px;
-  left: -11px;
-}
-
-.comments-list .comment-box:before {
-  border-width: 11px 13px 11px 0;
-  border-color: transparent rgba(0,0,0,0.05);
-  left: -12px;
-}
-
-.reply-list .comment-box {
-  width: 610px;
-}
-.comment-box .comment-head {
-  background: #FCFCFC;
-  padding: 10px 12px;
-  border-bottom: 1px solid #E5E5E5;
-  overflow: hidden;
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  border-radius: 4px 4px 0 0;
-}
-
-.comment-box .comment-head i {
-  float: right;
-  margin-left: 14px;
-  margin-right: 8px;
-  position: relative;
-  top: 2px;
-}
-
-.comment-box .comment-name {
-  color: #283035;
-  font-size: 14px;
-  font-weight: 700;
-  float: left;
-  margin-right: 10px;
-}
-
-.comment-box .comment-name a {
-  color: #283035;
-}
-
-.comment-box .comment-head span {
-  float: left;
-  color: #999;
-  font-size: 13px;
-  position: relative;
-  top: 1px;
-}
-
-.comment-box .comment-content {
-  background: #FFF;
-  padding: 12px;
-  font-size: 15px;
-  color: #595959;
-  -webkit-border-radius: 0 0 4px 4px;
-  -moz-border-radius: 0 0 4px 4px;
-  border-radius: 0 0 4px 4px;
-}
-
-
-/** =====================
-* Responsive
-========================*/
-@media only screen and (max-width: 766px) {
-  .comments-container {
-      width: 480px;
-  }
-
-  .comments-list .comment-box {
-      width: 390px;
-  }
-
-  .reply-list .comment-box {
-      width: 320px;
-  }
-}
-
-.date {
-  float: right;
-}
-
-
-.btn-group {
-  float: right;
-}
-
-.lg{
-  padding: 0px;
-}
-
-.time {
-  margin-top: -3px;
-}
-
-.initial {
-  text-align: center;
-  font-weight: 700;
-}
-
-
-/*------------------------Textarea--------*/
-
-textarea {
-  resize: none;
-}
-
-#count_message {
-background-color: smoke;
-margin-top: -20px;
-margin-right: 5px;
-}
-
-.form-control{
-  border-radius: 3px !important;
-}
 
 /*------------------------------------Shadows-----*/
 .jumbotron {
@@ -880,4 +638,207 @@ margin-right: 5px;
 
 .nav-link:hover, .narbar-brand:hover {
   color:#28a745 !important; 
+}
+
+
+
+/*================================[Comment Panel]=================*/
+.comment-section{
+  list-style: none;
+  max-width: 800px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.comment{
+  display: flex;
+  border-radius: 3px;
+  margin-bottom: 45px;
+  flex-wrap: wrap;
+}
+
+.comment.user-comment{
+  color:  #808080;
+}
+
+.comment.author-comment{
+  color:  #60686d;
+  justify-content: flex-end;
+}
+
+/* User and time info */
+
+.comment .info{
+  width: 17%;
+}
+
+.comment.user-comment .info{
+  text-align: right;
+}
+
+.comment.author-comment .info{
+  order: 3;
+}
+
+
+.comment .info a{	/* User name */
+  display: block;
+  text-decoration: none;
+  color: #656c71;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0 3px 0;
+  margin-right: 8px;
+}
+
+.comment .info span{	/* Time */
+  font-size: 11px;
+  color:  #9ca7af;
+}
+
+/* The comment text */
+
+.comment p{
+  line-height: 1.5;
+  padding: 18px 22px;
+  width: 50%;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.comment.user-comment p{
+  background-color:  #f3f3f3;
+}
+
+.comment.author-comment p{
+  background-color:  #e2f8ff;
+  order: 1;
+}
+
+.user-comment p:after{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #f3f3f3;
+  left: -8px;
+  top: 18px;
+}
+
+.author-comment p:after{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #e2f8ff;
+  right: -8px;
+  top: 18px;
+}
+
+
+
+
+/* Comment form */
+
+.write-new{
+  margin: 80px auto 0;
+  width: 50%;
+}
+
+.write-new textarea{
+  color:  #444;
+  font: inherit;
+
+  outline: 0;
+  border-radius: 3px;
+  border: 1px solid #cecece;
+  background-color:  #fefefe;
+  box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.06);
+  overflow: auto;
+
+  width:100%;
+  min-height: 80px;
+  padding: 15px 20px;
+}
+
+.write-new img{
+  border-radius: 50%;
+  margin-top: 15px;
+}
+
+.write-new button{
+  float:right;
+  background-color:  #87bae1;
+  box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  border: 0;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+
+  padding: 10px 25px;
+  margin-top: 18px;
+}
+
+
+
+/* Responsive styles */
+
+@media (max-width: 800px){
+  /* Make the paragraph in the comments take up the whole width,
+  forcing the avatar and user info to wrap to the next line*/
+  .comment p{
+      width: 100%;
+  }
+
+  
+
+
+  /* Align toward the beginning of the container (to the left)
+  all the elements inside the author comments. */
+  .comment.author-comment{
+      justify-content: flex-start;
+  }
+
+
+  .comment-section{
+      margin-top: 10px;
+  }
+
+  .comment .info{
+      width: auto;
+  }
+
+  .comment .info a{
+      padding-top: 15px;
+  }
+
+  .comment.user-comment .avatar,
+  .comment.author-comment .avatar{
+      padding: 15px 10px 0 18px;
+      width: auto;
+  }
+
+  .comment.user-comment p:after,
+  .comment.author-comment p:after{
+      width: 12px;
+      height: 12px;
+      top: initial;
+      left: 28px;
+      bottom: -6px;
+  }
+
+  .write-new{
+      width: 100%;
+  }
+}
+.comment.user-comment .info {
+  margin-right: 70px;
 }
