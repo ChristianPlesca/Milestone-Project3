@@ -6,7 +6,7 @@ from . import db
 from . import mongo
 
 main = Blueprint('main', __name__)
-date = datetime.now().strftime("%d/%m/%Y")
+date = datetime.now().strftime("%d %b %Y")
 time = datetime.now().strftime("%H:%M:%S")
 
 @main.route('/')
@@ -41,16 +41,17 @@ def artist_page(artist_id ,artist_name):
 
 
     artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
-
     comments = mongo.db.comments.find({"artist_id":ObjectId(artist_id.items()[4][1])})
+    nr_comments = mongo.db.comments.count({"artist_id":ObjectId(artist_id.items()[4][1])})
+    
 
-    return render_template("artistpage.html", artist_id = artist_id , comments = comments ) 
+    return render_template("artistpage.html", artist_id = artist_id , comments = comments , nr_comments = nr_comments) 
 
 @main.route("/insert_comment/<artist_id>", methods = ["POST"])
 def insert_comment(artist_id):
     artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
     messages_conn = mongo.db.comments
-    messages_doc = {"messages":{request.form.get('messages') : current_user.id }, "user":current_user.name, "date":date, "time":time, "artist_id":artist_id.items()[4][1] }
+    messages_doc = {"messages":request.form.get('messages') ,"user_id":current_user.id, "user":current_user.name, "date":date, "time":time, "artist_id":artist_id.items()[4][1] }
     messages_conn.insert_one(messages_doc)
     return redirect(url_for("main.index"))
 
@@ -72,9 +73,10 @@ def update_comment(comments_id,artist_id):
     messages = mongo.db.comments.update({"_id":ObjectId(comments_id)},
     {
        "date":date,
-       "messages":{request.form.get("messages"):current_user.id},
+       "messages":request.form.get("messages"),
        "user":current_user.name,
        "time":time,
-       "artist_id":artist_id.items()[4][1]
+       "artist_id":artist_id.items()[4][1],
+       "user_id":current_user.id
     })
     return redirect(url_for("main.artist_page"))
