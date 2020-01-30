@@ -51,32 +51,32 @@ def artist_page(artist_id ,artist_name):
 def insert_comment(artist_id):
     artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
     messages_conn = mongo.db.comments
-    messages_doc = {"messages":request.form.get('messages') ,"user_id":current_user.id, "user":current_user.name, "date":date, "time":time, "artist_id":artist_id.items()[4][1] }
+    messages_doc = {"messages":request.form.get('messages') ,"user_id":current_user.id, "user":current_user.name, "date":date, "time":time, "artist_id":artist_id.items()[4][1]}
     messages_conn.insert_one(messages_doc)
     return redirect(url_for("main.index"))
 
-@main.route("/<comments_id>")
-def delete_comment(comments_id):
+@main.route("/<comments_id>/<artist_name>/<artist_id>" )
+def delete_comment(comments_id,artist_name,artist_id):
     mongo.db.comments.remove({"_id":ObjectId(comments_id)})
-    return redirect(url_for("main.artist_page"))
+    return redirect(url_for("main.artist_page",artist_id = artist_id, artist_name = artist_name))
 
 
 @main.route("/edit_message/<comments_id>/<artist_id>")
 def edit_message(comments_id,artist_id):
     the_message = mongo.db.comments.find_one({"_id":ObjectId(comments_id)})
     artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
-    return render_template("editmessage.html", messages = the_message ,artist = artist_id)
+    return render_template("editmessage.html", messages = the_message ,artist = artist_id )
 
-@main.route("/update_message/<comments_id>/<artist_id>", methods = ["POST"])
-def update_comment(comments_id,artist_id):
-    artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
+@main.route("/update_message/<comments_id>/<artist_name>/<artist_id>", methods = ["POST"])
+def update_comment(comments_id,artist_id,artist_name):
+    
     messages = mongo.db.comments.update({"_id":ObjectId(comments_id)},
     {
        "date":date,
        "messages":request.form.get("messages"),
        "user":current_user.name,
        "time":time,
-       "artist_id":artist_id.items()[4][1],
+       "artist_id":ObjectId(artist_id),
        "user_id":current_user.id
     })
-    return redirect(url_for("main.artist_page"))
+    return redirect(url_for("main.artist_page" ,artist_id = artist_id, artist_name = artist_name ))

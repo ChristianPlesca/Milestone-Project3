@@ -111,9 +111,10 @@
                         <button class="btn-lg fa fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>                                               
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id,artist_id = artist_id._id)}}">Edit</a>
+                          
+                          <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id,artist_id = artist_id._id,artist_name = artist_id.artist_name)}}">Edit</a>
                           <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist_id._id, artist_name = artist_id.artist_name)}}">Delete</a>
-                                              
+                                    
                         </div>                        
                       </div>                      
                       {% endif %}
@@ -125,12 +126,14 @@
         </div>
         <br>
                 {% endfor %}
-                  <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist_id._id)}}" method="POST" class="container sendform">
+                
+                  <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist_id._id , artist_name = artist_id.artist_name)}}" method="POST" class="container sendform" >
                       <textarea class="form-control" id="text" name="messages" maxlength="500" placeholder="Type in your message" rows="5"></textarea>
                       <span class="pull-right label label-default" id="count_message"></span>
                       <br>
                       <button class="btn btn-success" type="submit" name="action">Post New Message</button>
                   </form>
+                  
                   <br>
                   
               
