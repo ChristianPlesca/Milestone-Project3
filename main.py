@@ -45,19 +45,19 @@ def artist_page(artist_id ,artist_name):
     nr_comments = mongo.db.comments.count({"artist_id":ObjectId(artist_id.items()[4][1])})
     
 
-    return render_template("artistpage.html", artist_id = artist_id , comments = comments , nr_comments = nr_comments) 
+    return render_template("artistpage.html", artist_id = artist_id , comments = comments , nr_comments = nr_comments ) 
 
 @main.route("/<artist_id>/<artist_name>", methods = ["POST"])
 def insert_comment(artist_id,artist_name):
     messages_conn = mongo.db.comments
     messages_doc = {"messages":request.form.get('messages') ,"user_id":current_user.id, "user":current_user.name, "date":date, "time":time, "artist_id":ObjectId(artist_id)}
     messages_conn.insert_one(messages_doc)
-    return redirect(url_for("main.artist_page",artist_id = artist_id, artist_name = artist_name))
+    return redirect(url_for("main.artist_page",artist_id = artist_id, artist_name = artist_name) + "#sendform")
 
 @main.route("/<comments_id>/<artist_name>/<artist_id>" )
 def delete_comment(comments_id,artist_name,artist_id):
     mongo.db.comments.remove({"_id":ObjectId(comments_id)})
-    return redirect(url_for("main.artist_page",artist_id = artist_id, artist_name = artist_name))
+    return redirect(url_for("main.artist_page",artist_id = artist_id, artist_name = artist_name ) + "#sendform")
 
 
 @main.route("/edit_message/<comments_id>/<artist_id>")
@@ -78,4 +78,4 @@ def update_comment(comments_id,artist_id,artist_name):
        "artist_id":ObjectId(artist_id),
        "user_id":current_user.id
     })
-    return redirect(url_for("main.artist_page" ,artist_id = artist_id, artist_name = artist_name ))
+    return redirect(url_for("main.artist_page" ,artist_id = artist_id, artist_name = artist_name ) + "#sendform")
