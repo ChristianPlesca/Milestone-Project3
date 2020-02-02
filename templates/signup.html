@@ -1,3 +1,6 @@
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/images/shortcut-icon-index-page.png" />
+</head>
 {% extends "base.html" %} {% block content %}
 <div class="limiter">
     <div class="container-login100">
@@ -13,7 +16,7 @@
                 {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="alert alert-danger">
-                {{ messages[0] }} Go to <a href="{{ url_for('auth.login') }}">Login page</a>.
+                {{ messages[0] }}</a>.
             </div>
         {% endif %}
         {% endwith %}

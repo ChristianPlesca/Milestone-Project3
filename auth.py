@@ -14,7 +14,8 @@ def login():
 def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
-    
+    remember = True if request.form.get('remember') else False
+
 
     user = User.query.filter_by(email=email).first()
 
@@ -37,11 +38,13 @@ def signup_post():
     password = request.form.get('password')
 
     user = User.query.filter_by(email=email).first()
-
+    user_name = User.query.filter_by(name = name).first()
     if user:
         flash('Email address already exists.')
         return redirect(url_for('auth.signup'))
-
+    elif user_name:
+        flash('Username already exists please chose another Username')
+        return redirect(url_for('auth.signup'))
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
 
     db.session.add(new_user)

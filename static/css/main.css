@@ -143,11 +143,16 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #9053c7;
-    background: -webkit-linear-gradient(-135deg, #343a40, #4158d0);
-    background: -o-linear-gradient(-135deg, #343a40, #4158d0);
-    background: -moz-linear-gradient(-135deg, #343a40, #4158d0);
-    background: linear-gradient(-135deg, #343a40, #4158d0);
+    background: url("../images/main-background-image.jpg") center no-repeat ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
   }
   
   .wrap-login100 {
@@ -433,7 +438,29 @@
     padding: 2.25rem;
   }
   /*------------------------Artist Page Headder---------*/
-  
+.main-background{
+  background: url("../images/main-background-image.jpg") center no-repeat ;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+  .main-background-image {
+    background:  no-repeat top center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
   .title {
     text-align: center;
     padding: 20px;
@@ -462,7 +489,15 @@
 }
 
 .artist-home-page {
-  background:linear-gradient(-135deg, #343a40, #4158d0); ;
+  background: url("../images/main-background-image.jpg") center no-repeat ;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .fa-star{
@@ -565,6 +600,12 @@ ul {
   color:#28a745 !important; 
 }
 
+.logo {
+  width:130px;
+}
+.navbar-nav {
+  margin-bottom:5px
+}
 /*================================[Comment Panel]=================*/
 body{
   
@@ -624,4 +665,9 @@ p {
 
 .sendform {
   padding: 0px !important;
+}
+
+/*=======================[Icons]================*/
+.fas {
+  margin:5px;
 }
