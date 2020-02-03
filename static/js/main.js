@@ -54,6 +54,14 @@
     
 });
 
+/*==================================================================
+    [ Comment Section]*/
+
+
+  let comment = setInterval(function() {
+    $('#comment-section').load(' #inner-comment');
+  }, 5000);
+ 
 
 
 

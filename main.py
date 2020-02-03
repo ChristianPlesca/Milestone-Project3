@@ -6,8 +6,7 @@ from . import db
 from . import mongo
 
 main = Blueprint('main', __name__)
-date = datetime.now().strftime("%d %b %Y")
-time = datetime.now().strftime("%H:%M:%S")
+
 
 @main.route('/')
 def index():
@@ -19,26 +18,9 @@ def index():
 
 @main.route("/<artist_name>/<artist_id>" )
 def artist_page(artist_id ,artist_name):
-    artist_data = {
-        'artist_name':request.form.get("artist_name"),
-        'artist_genre':request.form.get("artist_genre"),
-        'artist_description':request.form.get('artist_description'),
-        'artist_members':request.form.get("artist_members"),
-        'artist_albums':request.form.get("artist_albums"),
-        'album_url':request.form.get('album_url'),
-        'artist_icon':request.form.get('artist_icon'),
-        'artist_id':request.form.get("artist_id")
-    }
-
-    comments_data = {
-        "_id":request.form.get("_id"),
-        "date":request.form.get("date"),
-        "artist_id":request.form.get("artist_id"),
-        "messages":request.form.get("messages"),
-        "user":request.form.get("user"),
-        "time":request.form.get("time")
-    }
-
+    
+    date = datetime.now().strftime("%d %b %Y")
+    time = datetime.now().strftime("%H:%M:%S")
 
     artist = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
     comments = mongo.db.comments.find({"artist_id":ObjectId(artist_id)})
@@ -49,6 +31,8 @@ def artist_page(artist_id ,artist_name):
 
 @main.route("/<artist_id>/<artist_name>", methods = ["POST"])
 def insert_comment(artist_id,artist_name):
+    date = datetime.now().strftime("%d %b %Y")
+    time = datetime.now().strftime("%H:%M:%S")
     messages_conn = mongo.db.comments
     messages_doc = {"messages":request.form.get('messages') ,"user_id":current_user.id, "user":current_user.name, "date":date, "time":time, "artist_id":ObjectId(artist_id)}
     messages_conn.insert_one(messages_doc)
@@ -68,6 +52,8 @@ def edit_message(comments_id,artist_id):
 
 @main.route("/update_message/<comments_id>/<artist_name>/<artist_id>", methods = ["POST"])
 def update_comment(comments_id,artist_id,artist_name):
+    date = datetime.now().strftime("%d %b %Y")
+    time = datetime.now().strftime("%H:%M:%S")
     
     messages = mongo.db.comments.update({"_id":ObjectId(comments_id)},
     {
