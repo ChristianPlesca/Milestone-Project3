@@ -37,7 +37,10 @@ def create_app():
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    
+    if __name__ == "__main__":
+        app.run(host=os.environ.get("IP"),port=os.environ.get("PORT"),debug=False)
+    
     return app
 
-    if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),port=os.environ.get("PORT"),debug=False)
+    
