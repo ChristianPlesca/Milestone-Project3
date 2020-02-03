@@ -39,7 +39,7 @@ def create_app():
     app.register_blueprint(main_blueprint)
     
     if __name__ == "__main__":
-        app.run(host=os.environ.get("IP"),port=os.environ.get("PORT"),debug=False)
+        app.run()
     
     return app
 
