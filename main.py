@@ -40,12 +40,12 @@ def artist_page(artist_id ,artist_name):
     }
 
 
-    artist_id = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
-    comments = mongo.db.comments.find({"artist_id":ObjectId(artist_id.items()[4][1])})
-    nr_comments = mongo.db.comments.count({"artist_id":ObjectId(artist_id.items()[4][1])})
+    artist = mongo.db.artist_data.find_one({"_id":ObjectId(artist_id)})
+    comments = mongo.db.comments.find({"artist_id":ObjectId(artist_id)})
+    nr_comments = mongo.db.comments.count({"artist_id":ObjectId(artist_id)})
     
 
-    return render_template("artistpage.html", artist_id = artist_id , comments = comments , nr_comments = nr_comments ) 
+    return render_template("artistpage.html", artist_id = artist_id , artist = artist, comments = comments , nr_comments = nr_comments ) 
 
 @main.route("/<artist_id>/<artist_name>", methods = ["POST"])
 def insert_comment(artist_id,artist_name):

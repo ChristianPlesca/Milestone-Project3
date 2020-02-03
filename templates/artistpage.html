@@ -15,10 +15,10 @@
   <!--===============================================================================================-->
   
   <!-- Masthead -->
-  <header class="masthead bg-primary text-white text-center" style="background-image:url('{{artist_id.artist_icon}}')">
+  <header class="masthead bg-primary text-white text-center" style="background-image:url('{{artist.artist_icon}}')">
     <div class="container d-flex align-items-center flex-column">
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">{{artist_id.artist_name}}</h1>
+      <h1 class="masthead-heading text-uppercase mb-0">{{artist.artist_name}}</h1>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -34,10 +34,18 @@
   <div class="container-artistpage" >
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
+      <h5 class = "display-5"><i class="fas fa-music"></i>Genre </h5>
+      {% for genre in artist.artist_genre%}
+      {% if not loop.last %}
+      <p class = "lead members">{{genre + " |" }}</p>
+      {% else %}
+      <p class = "lead members">{{genre}}</p>
+      {% endif %}
+      {% endfor %}
       <h5 class="display-5"><i class="fas fa-newspaper"></i>Description</h5>
-      <p class="lead">{{artist_id.artist_description}}</p>
+      <p class="lead">{{artist.artist_description}}</p>
       <h5 class="display-5"><i class="fas fa-users"></i>Members</h5>
-      {% for member in artist_id.artist_members %}
+      {% for member in artist.artist_members %}
       {% if not loop.last %}
       <p class="lead members">{{member + "," }}</p>
       
@@ -52,7 +60,7 @@
     <h1 class="text-center"><i class="fas fa-compact-disc"></i>Albums</h1>
     <br>
     <ol class="carousel-indicators">
-      {% for album in artist_id.album_url %}
+      {% for album in artist.album_url %}
          {% if loop.index == 0 %}
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       {% else %}
@@ -62,14 +70,14 @@
     </ol>
     
     <div class="carousel-inner">
-      {% for album in artist_id.album_url %}
+      {% for album in artist.album_url %}
         {% if loop.index == 1 %}
       <div class="carousel-item active">
-        <img class="d-block w-100" src="{{album}}" alt="Slide">
+        <img class="d-block w-100" src="{{album}}" alt="Album Photo">
       </div>
       {% else %}
       <div class="carousel-item ">
-        <img class="d-block w-100" src="{{album}}" alt="First slide">
+        <img class="d-block w-100" src="{{album}}" alt="Album Photo">
       </div>
       {% endif %}
       {% endfor %}
@@ -91,7 +99,7 @@
     <div class="col-md-8 container">
       {% for item in comments %}
               
-        <div class="media g-mb-30 media-comment "  >
+        <div class="media g-mb-30 media-comment " id = "comment-section" >
           
             <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15 js-tilt" src="../static/images/message_user_image.png" alt="User Photo">
             <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30" >
@@ -117,8 +125,8 @@
                         </button>                                               
                         <div class="dropdown-menu">
                           
-                          <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id,artist_id = artist_id._id,artist_name = artist_id.artist_name)}}">Edit</a>
-                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist_id._id, artist_name = artist_id.artist_name)}}">Delete</a>
+                          <a class="dropdown-item" href="{{url_for('main.edit_message', comments_id = item._id,artist_id = artist._id,artist_name = artist.artist_name)}}">Edit</a>
+                          <a class="dropdown-item" href="{{url_for('main.delete_comment',comments_id = item._id, artist_id = artist._id, artist_name = artist.artist_name)}}">Delete</a>
                                     
                         </div>                        
                       </div>                      
@@ -132,7 +140,7 @@
         <br>
                 {% endfor %}
                 
-                  <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist_id._id , artist_name = artist_id.artist_name)}}" method="POST" class="container sendform" id = "sendform">
+                  <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist._id , artist_name = artist.artist_name)}}" method="POST" class="container sendform" id = "sendform">
                       <textarea class="form-control" id="text" name="messages" maxlength="500" placeholder="Type in your message" rows="5"></textarea>
                       <span class="pull-right label label-default" id="count_message"></span>
                       <br>
@@ -148,10 +156,7 @@
   </div>
 
    
-  
-
-     
-  
+   
   
   <script src="../static/js/main.js"></script>
   <script src="../static/vendor/jquery/jquery.min.js"></script>
@@ -163,6 +168,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!--===============================================================================================-->
+
+
+
 </body>
 {% endblock %}
 

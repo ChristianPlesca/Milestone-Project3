@@ -1,1 +1,1 @@
-web: python __init__.py main.py models.py auth.py
+web: python __init__.py
