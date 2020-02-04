@@ -33,6 +33,8 @@ def artist_page(artist_id ,artist_name):
 def insert_comment(artist_id,artist_name):
     date = datetime.now().strftime("%d %b %Y")
     time = datetime.now().strftime("%H:%M:%S")
+
+    
     messages_conn = mongo.db.comments
     messages_doc = {"messages":request.form.get('messages') ,"user_id":current_user.id, "user":current_user.name, "date":date, "time":time, "artist_id":ObjectId(artist_id)}
     messages_conn.insert_one(messages_doc)

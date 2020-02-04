@@ -96,11 +96,11 @@
   <div><h2 class="text-center"><i class="fas fa-comment"></i>Comment Section</h2></div>
   <div><h4 class="text-center"><i class="fas fa-comments"></i>Comments({{nr_comments}})</h4></div>
   <div class="row">
-    <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist._id , artist_name = artist.artist_name)}}" method="POST" class="container col-md-8"  id = "sendform">
-      <textarea class="form-control" id="text" name="messages" maxlength="500" placeholder="Type in your message" rows="5"></textarea>
+    <form accept-charset="UTF-8" action="{{url_for('main.insert_comment', artist_id = artist._id , artist_name = artist.artist_name)}}" method="POST" class="container col-md-8"  id = "sendform" onkeyup="success()">
+      <textarea class="form-control" id="text" name="messages" maxlength="500" placeholder="Type in your message" rows="5" id = "textarea"></textarea>
       <span class="pull-right label label-default" id="count_message"></span>
       <br>
-      <button class="btn btn-success" type="submit" name="action">Post New Message</button>
+      <button  class="btn btn-success" type="submit" name="action" id = "post-button" >Post New Message</button>
   </form>
     <div class="col-md-8 container" id = "comment-section">
       
@@ -131,7 +131,7 @@
                 <li class="list-inline-item ml-auto">
                   {% if current_user.id == item.user_id %}                     
                       <div class="btn-group ">
-                        <button class="btn-lg fas fa-ellipsis-v" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id = "3-dotted-btn">
+                        <button  class="btn-lg fas fa-ellipsis-v" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id = "3-dotted-btn">
                         </button>                                               
                         <div class="dropdown-menu">
                           
@@ -167,7 +167,6 @@
    
    
   <script src="https://kit.fontawesome.com/496107ba3b.js" crossorigin="anonymous"></script>
-  <script src="../static/js/main.js"></script>
   <script src="../static/vendor/jquery/jquery.min.js"></script>
   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -179,6 +178,7 @@
 <!--===============================================================================================-->
 
 </body>
+
 {% endblock %}
 
 

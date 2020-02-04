@@ -56,16 +56,16 @@
 
 /*==================================================================
     [ Comment Section]*/
-
-
-  let comment = setInterval(function() {
-    $('#comment-section').load(' #inner-comment');
-  }, 5000);
+  
+  function success() {
+        if(document.getElementById("textarea").value==="") { 
+               document.getElementById('post-button').disabled = true; 
+           } else { 
+               document.getElementById('post-button').disabled = false;
+           }
+       }
  
 
-
-
-
-
+       
 
 
