@@ -70,12 +70,7 @@
 
     var comment = setInterval(function() {
         $('#comment-section').load(' #inner-comment');
-    }, 1000);
-
-    $("3-dotted-btn").on("click", function(){
-
-    alert("HEYYY")  
+    }, 10000);
 
     
-})
     

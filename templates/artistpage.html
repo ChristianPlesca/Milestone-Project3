@@ -16,6 +16,7 @@
   
   <!-- Masthead -->
   <header class="masthead bg-primary text-white text-center" style="background-image:url('{{artist.artist_icon}}')">
+    
     <div class="container d-flex align-items-center flex-column">
       <!-- Masthead Heading -->
       <h1 class="masthead-heading text-uppercase mb-0">{{artist.artist_name}}</h1>
@@ -31,6 +32,7 @@
     </div>
   </header>
 <div class = "main-background"> 
+  
   <div class="container-artistpage" >
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -118,12 +120,12 @@
                 <span class="g-color-gray-dark-v4 g-font-size-12"><i class="fas fa-user-clock"></i>{{item.time}}</span>
               </div>
               
-              <p><i class="fas fa-comment-dots"></i></i>{{item.messages}}</p>
+              <p class="lead members"><i class="fas fa-comment-dots"></i></i>{{item.messages}}</p>
         
               <ul class="list-inline d-sm-flex my-0">
                 
                 <li class="list-inline-item g-mr-20">
-                  <p class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover">
+                  <p class="u-link-v5 g-color-gray-dark-v4 ">
                     <i class="fas fa-calendar-alt"></i>Posted: {{item.date}}
                   </p>
                 </li>
