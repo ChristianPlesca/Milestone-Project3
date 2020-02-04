@@ -57,15 +57,25 @@
 /*==================================================================
     [ Comment Section]*/
   
-  function success() {
-        if(document.getElementById("textarea").value==="") { 
+  function dissabledtext() {
+        if(document.getElementById("textarea").value == "") { 
                document.getElementById('post-button').disabled = true; 
            } else { 
                document.getElementById('post-button').disabled = false;
            }
        }
- 
-
-       
 
 
+    
+
+    var comment = setInterval(function() {
+        $('#comment-section').load(' #inner-comment');
+    }, 1000);
+
+    $("3-dotted-btn").on("click", function(){
+
+    alert("HEYYY")  
+
+    
+})
+    
