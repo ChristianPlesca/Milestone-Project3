@@ -12,6 +12,7 @@ flask-sqlalchemy = "*"
 pymongo = "*"
 selenium = "*"
 gunicorn = "*"
+flask-login = "*"
 
 [requires]
 python_version = "3.6"
