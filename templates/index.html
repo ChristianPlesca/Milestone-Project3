@@ -12,7 +12,7 @@
     <img class="card-img-top" src="{{art.artist_icon}}" alt="Card image cap">
     <div class="card-body">
       <h6 class="card-title">{{art.artist_name}}</h6>
-      <a href="{{url_for('main.artist_page',artist_id = art._id , artist_name = art.artist_name)}}" class="btn btn-outline-success">Visit Artist Page</a>
+      <a href="{{url_for('artist_page',artist_id = art._id , artist_name = art.artist_name)}}" class="btn btn-outline-success">Visit Artist Page</a>
     </div>
   </div>
   
