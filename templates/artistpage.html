@@ -46,7 +46,7 @@
       {% endfor %}
       <h5 class="display-5"><i class="fas fa-newspaper"></i>Description</h5>
       <p class="lead">{{artist.artist_description}}</p>
-      <h5 class="display-5"><i class="fas fa-users"></i>Members</h5>
+      <h5 class="display-5"><i class="fas fa-users "></i>Members</h5>
       {% for member in artist.artist_members %}
       {% if not loop.last %}
       <p class="lead members">{{member + "," }}</p>
@@ -116,7 +116,11 @@
             <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15 js-tilt" src="../static/images/message_user_image.png" alt="User Photo">
             <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30"  >
               <div class="g-mb-15">
-                <h5 class="h5 g-color-gray-dark-v1 mb-0"><i class="fas fa-user"></i>{{item.user}}</h5>
+                {% if current_user.id == item.user_id %} 
+                <h5 class="h5 g-color-gray-dark-v1 mb-0"><i class="fas fa-user user"></i>You</h5>
+                {%else%}
+                <h5 class="h5 g-color-gray-dark-v1 mb-0"><i class="fas fa-user user"></i>{{item.user}}</h5>
+                {%endif%}
                 <span class="g-color-gray-dark-v4 g-font-size-12"><i class="fas fa-user-clock"></i>{{item.time}}</span>
               </div>
               

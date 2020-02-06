@@ -65,12 +65,14 @@
            }
        }
 
-
-    
+    function email() {
+        var x = document.getElementById("email").required;
+        document.getElementById("demo").innerHTML = x;
+      }
 
     var comment = setInterval(function() {
         $('#comment-section').load(' #inner-comment');
-    }, 10000);
+    }, 10000000);
 
     
     

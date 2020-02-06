@@ -244,6 +244,8 @@
     -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
     animation: anim-shadow 0.5s ease-in-out forwards;
   }
+
+  
   
   @-webkit-keyframes anim-shadow {
     to {
@@ -544,7 +546,7 @@
   color:wheat
 }
 
-.fa-music ,.fa-newspaper, .fa-users {
+.fa-music ,.fa-newspaper, .fa-users, .user {
   color: crimson;
 }
 .jumbotron p {
@@ -665,12 +667,12 @@ body{
 
 @media (min-width: 0){
   .g-pa-30 {
-      padding: 2.14286rem !important;
+      padding: 1.14286rem !important;
   }
 }
 
 .g-bg-secondary {
-  background-color: #fafafa !important;
+  background-color: rgba(0, 0, 0, 0.19);
 }
 
 .u-shadow-v18 {
@@ -692,6 +694,7 @@ p {
 }
 .media-body {
   text-align: initial;
+  border-radius: 10px;
 }
 
 .sendform {
@@ -701,6 +704,42 @@ p {
 .btn-success {
   font-family: 'Roboto Slab', serif;
 }
+
+.h5 {
+  color: wheat;
+}
+
+.g-font-size-12 {
+  color: antiquewhite;
+}
+
+.lead {
+  color:#b3b3b3;
+}
+
+.fa-comment-dots {
+  color: #28a745;
+}
+.list-inline-item {
+  display: table;
+
+}
+.fa-ellipsis-v {
+  padding: 0px;
+  margin: 0px;
+  margin-right: 10px;
+  color: darkgray;
+  text-shadow: 1px 1px 2px black, 0 0 25px silver, 0 0 5px darkblue;
+}
+
+.list-inline {
+  display: flex;
+}
+
+.u-link-v5 {
+  color: darkgray;
+}
+
 
 /*=======================[Icons]================*/
 .fas {
