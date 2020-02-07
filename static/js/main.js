@@ -72,7 +72,7 @@
 
     var comment = setInterval(function() {
         $('#comment-section').load(' #inner-comment');
-    }, 10000000);
+    }, 10000);
 
     
     

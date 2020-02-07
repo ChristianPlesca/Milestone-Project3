@@ -557,6 +557,7 @@
 
 /*-----------------------------------Album Crousel------*/
 
+
 h1,h2,h4 {
   color: honeydew;
   text-shadow: 1px 1px 2px black, 0 0 25px silver, 0 0 5px darkblue;
@@ -586,7 +587,7 @@ h1,h2,h4 {
 
 @media(max-width:414px){
   .w-100{
-    height: 50%;
+    height: 50vh;
   }
 }
 
@@ -623,6 +624,9 @@ ul {
   text-shadow: 1px 1px 2px black, 0 0 25px silver, 0 0 5px darkblue;
   font-weight: 700;
 }
+.navbar-dark {
+  border-color: rgba(255,255,255,.5) !important;
+}
 
 
 /*==============================[Navbar]=============*/
@@ -640,6 +644,12 @@ ul {
 }
 .navbar-nav {
   margin-bottom:5px
+}
+
+@media(max-width:812px){
+.home, .login, .singup, .logout {
+  margin-left: 10px;
+}
 }
 /*================================[Comment Panel]=================*/
 body{
@@ -745,3 +755,9 @@ p {
 .fas {
   margin:5px;
 }
+
+
+
+
+
+
