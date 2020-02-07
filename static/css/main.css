@@ -585,7 +585,13 @@ h1,h2,h4 {
   border-radius: 10px;
 }
 
-@media(max-width:425px){
+
+@media(min-width:768px) and (max-width:1366px){
+  .w-100{
+    height: 50vh;
+  }
+}
+@media(max-width:560px){
   .w-100{
     height: 50vh;
   }
