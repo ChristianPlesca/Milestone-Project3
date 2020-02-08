@@ -29,6 +29,7 @@ The following link shows the initial mockups for the Wintersun Website using pen
 * Search Bar where you can search for a specific band. 
 * Loading Gif when the images load in the home page.
 * User Image where the user can insert a photo of themselves.
+* Few small bugs to be fix
 
 
 # Technologies
@@ -56,7 +57,19 @@ The following link shows the initial mockups for the Wintersun Website using pen
 * [MongoDB Documentation](https://docs.mongodb.com/manual/)
 
 ## Testing
-To be completed
+*  The application was constantly tested during development using Opera GX dev tools. I used this to resize the browser to check the new code was working, breakpoints, and different mobile/tablet screen sizes.
+* After deployment, I've tested the website on multiple browsers such as Mozilla(FireFox), Opera, Chrome, Microsoft Edge, Safari.
+* Used https://jshint.com for testing Javascript files - No major issues were found
+* Used [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly?utm_source=support.google.com/webmasters/&utm_medium=referral&utm_campaign=%206352293) - received this page is easy to use on a mobile device
+* Used HTML and CSS validator [NuHTMLChecker](https://validator.w3.org/nu/#textarea) and [W3C-CSS](https://jigsaw.w3.org/css-validator/validator) - No major issues found
+* The Login Sign Up form was tested by creating new users, by trying to create a user with the same name/email witch has already been created.
+* The comment section was tested by creating multiple messages, when inserting, deleting or updating a message it should redirect back to the comment section, the message field should load every 10 seconds so you don't have to refresh the browser each time you want to see replies
+* Tested the comments/comments count so they are inserted on the particular artist URL
+* The Delete/Edit comment was tested so the user can edit or delete their own messages, the other users must not be albe to delete or edit other users comments
+* Tested the comment box so that users can't click Post New Comment if the textarea is empty
+* The user should not be able to insert more than 500 characters
+
+
 
 ### Issues encountered
 * Flask - Fetching the comments into artist page so the same comments don't display for all the artists 
@@ -67,6 +80,16 @@ To be completed
 * Read Flask , Heroku documentation
 
 ## Deployment
+The deployment of the website was done using Heroku, a link to the website can be found [Here](https://top-rock.herokuapp.com/).
+To deploy to project to Heroku I used the following steps:
+* Created a virtual environment using pipenv 
+* Installed all the dependencies using pipenv install package name
+* Created an app on the Heroku Platform
+* Installed the package Gunicorn 
+* Used echo web: gunicorn app:app > Procfile to create the Procfile
+* Set the IP 0.0.0.0 and PORT 5000
+* Created the requirements.txt file using pip3 freeze --local > requirements.txt
+* Used the commands Heroku git:remote -a (app name) , git add . , git push -u Heroku master
 
 ## Credits
 The login form was taken from [https://colorlib.com/wp/html5-and-css3-login-forms/] and has been overwritten by me to fit my needs.
