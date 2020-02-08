@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisismysecretkeydonotstealit'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config["MONGO_DBNAME"] = 'Artist'
-app.config["MONGO_URI"] = "mongodb+srv://root:1234mamavillevalo666@myfirstcluster-vu9sb.mongodb.net/Artist?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = "themongouri"
 
 
 db.init_app(app)
