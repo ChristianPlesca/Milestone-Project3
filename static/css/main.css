@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
   
-  /*//////////////////////////////////////////////////////////////////
-  [ RESTYLE TAG ]*/
+  /*=============================[ RESTYLE TAG ]===============*/
   
   * {
       margin: 0px; 
@@ -104,10 +103,7 @@
   iframe {
       border: none !important;
   }
-  
-  
-  /*//////////////////////////////////////////////////////////////////
-  [ Utility ]*/
+  /*=======================================[ Utility ]======*/
   .txt1 {
     font-family: Poppins-Regular;
     font-size: 13px;
@@ -123,8 +119,7 @@
   }
   
   
-  /*//////////////////////////////////////////////////////////////////
-  [ login ]*/
+  /*=============================================[ Login ]==============*/
   
   .limiter {
     width: 100%;
@@ -172,8 +167,6 @@
     margin-top: 70px;
   }
   
-  /*------------------------------------------------------------------
-  [  ]*/
   .login100-pic {
     width: 316px;
   }
@@ -182,9 +175,6 @@
     max-width: 100%;
   }
   
-  
-  /*------------------------------------------------------------------
-  [  ]*/
   .login100-form {
     width: 290px;
   }
@@ -201,8 +191,6 @@
     padding-bottom: 54px;
   }
   
-  
-  /*---------------------------------------------*/
   .wrap-input100 {
     position: relative;
     width: 100%;
@@ -225,8 +213,7 @@
   }
   
   
-  /*------------------------------------------------------------------
-  [ Focus ]*/
+  /*------------------------------------------------------------------[ Focus ]*/
   .focus-input100 {
     display: block;
     position: absolute;
@@ -291,8 +278,7 @@
     padding-left: 28px;
   }
   
-  /*------------------------------------------------------------------
-  [ Button ]*/
+  /*------------------------------------------------------------------[ Login/Sign UP Button ]*/
   .container-login100-form-btn {
     width: 100%;
     display: -webkit-box;
@@ -337,8 +323,7 @@
   
   
   
-  /*------------------------------------------------------------------
-  [ Responsive ]*/
+  /*------------------------------------------------------------------[ Responsive ]*/
   
   
   
@@ -379,7 +364,7 @@
   .p-t-136 {padding-top: 136px;}
   
   
-  /*------------------------Artist Card---------*/
+  /*------------------------Artist Cards---------*/
   .card {
     
     text-align: center;
@@ -608,6 +593,7 @@ h1,h2,h4 {
 
 ul {
   list-style-type: none;
+  margin-bottom:0px !important;
 }
 
 
@@ -701,6 +687,10 @@ body{
   font-size: 0.85714rem !important;
 }
 
+.media {
+  margin-bottom: 20px;
+}
+
 .media-comment {
   margin-top:20px
 }
@@ -756,11 +746,61 @@ p {
   color: darkgray;
 }
 
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border: 0.125rem solid rgba(42, 187, 155, 0.4) !important;
+  
+}
+.dropdown-item {
+  color: #b3b3b3 !important;
+}
+
+.form-control{
+  background-color: rgba(255,255,255,0.1) !important;
+  color: #b3b3b3 !important;
+}
+
+.d-flex {
+  height: 45px;
+}
 
 /*=======================[Icons]================*/
 .fas {
   margin:5px;
 }
+
+/*============================[Footer]===============*/
+.list-inline {
+  display: grid;
+}
+
+.list-inline-item{
+  margin: 5px;
+  color: #fff !important;
+}
+
+.footer {
+  font-family: 'Roboto Slab', serif;
+  background-color: #1e1e21 !important;
+  padding: 0px !important;
+}
+
+.powered-by-flask {
+  height: 30px;
+  margin-left:9px;
+  color:#fff !important;
+  margin-bottom: 16px;
+  
+}
+.name{
+  margin-top: 16px;
+  
+}
+
+
+
+
+
 
 
 

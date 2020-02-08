@@ -4,7 +4,7 @@
 
     
     /*==================================================================
-    [ Validate ]*/
+    [ Validation ]*/
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit',function(){
@@ -64,11 +64,6 @@
                document.getElementById('post-button').disabled = false;
            }
        }
-
-    function email() {
-        var x = document.getElementById("email").required;
-        document.getElementById("demo").innerHTML = x;
-      }
 
     var comment = setInterval(function() {
         $('#comment-section').load(' #inner-comment');

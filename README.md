@@ -44,6 +44,9 @@ The following link shows the initial mockups for the Wintersun Website using pen
 10. Sqlite 
 11. Visual Studio Code 
 12. Google Fonts 
+13. Heroku
+14. Git 
+15. GitHub 
 
 ### Resources
 * [Stackoverflow](https://stackoverflow.com/)
@@ -58,8 +61,10 @@ To be completed
 ### Issues encountered
 * Flask - Fetching the comments into artist page so the same comments don't display for all the artists 
 * Flask - Redirect after CRUD back to artist_page
+* Heroku - Deployment
 ### Steps taken to resolve issues
 * Searched for solutions on Goole and StackOverflow
+* Read Flask , Heroku documentation
 
 ## Deployment
 
